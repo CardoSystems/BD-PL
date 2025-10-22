@@ -69,4 +69,18 @@ WHERE preco_unit_atual IN (SELECT MIN(preco_unit_atual)
 DELETE 
 FROM produto
 WHERE produto.nome = 'LIXO'
+
 */
+
+--EX7 (NAO CORRIGIDO)
+SELECT AVG(produto.preco_unit_atual), categoria.nome  
+FROM produto
+JOIN categoria ON produto.categoria_id = categoria.id
+WHERE preco_unit_atual NOT IN (SELECT MAX(preco_unit_atual)
+                                        FROM produto
+                                        UNION
+                                        SELECT MIN(preco_unit_atual)
+                                        FROM produto)
+                GROUP BY categoria.nome
+                
+
