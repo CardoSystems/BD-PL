@@ -32,3 +32,17 @@ SELECT produto_id, desconto_unit_euros AS desconto_julho
 FROM linha_venda
 WHERE TO_CHAR(data, 'MON') LIKE ('%JUL%') AND desconto_unit_euros IS NOT NULL
 
+---------------------------
+-- EXERCICIO 6 - C2-F1-TR (corrigido)
+SELECT nome AS NOME, preco_unit_atual AS PRECO_SEM_IVA,
+    preco_unit_atual + (preco_unit_atual * iva / 100) AS PRECO_COM_IVA,
+    (preco_unit_atual * iva / 100) AS "IVA a pagar"
+FROM produto
+WHERE LOWER(nome) LIKE '%monitor%' AND preco_unit_atual < 200;
+
+---------------------------
+-- EXERCICIO 7 - C2-F2-TR
+
+
+
+
